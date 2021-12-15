@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CourseLesson } from "../common/contracts/courseLesson.interface";
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
-  courseLessons = [
+  courseLessons: CourseLesson[] = [
     { title: 'Hello Angular' },
     { title: 'Component Fundamentals' },
     { title: 'Template Driven Forms' },
@@ -17,7 +19,13 @@ export class HomeComponent implements OnInit {
     { title: 'Unit Testing Fundamentals' },
   ];
 
+  selectedCourseLesson: CourseLesson;
+
   constructor() {}
 
   ngOnInit() {}
+
+  handleClick(courseLesson: CourseLesson) {
+    this.selectedCourseLesson = courseLesson;  
+  }
 }
