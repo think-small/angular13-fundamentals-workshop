@@ -32,4 +32,12 @@ export class CourseDetailsComponent implements OnInit {
   reset(): void {    
     this._selectedCourse = {...emptyCourse};
   }
+
+  formatLabel(): string {
+    return `${this.selectedCourse.percentComplete}%`;
+  }
+
+  saveCourse(course: Course) {
+    console.log("Saving course with id: " + course.id);
+  }
 }
